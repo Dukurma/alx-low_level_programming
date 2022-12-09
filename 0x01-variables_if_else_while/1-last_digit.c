@@ -14,7 +14,6 @@ int main(void)
 	int n;
 	int M;
 	char str[] = "Last digit of";
-
 	
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
@@ -22,7 +21,7 @@ int main(void)
 	
 	if (M > 5)
 	{
-		printf("%s  %d is %d and is greater than 5\n",  str, n , M);
+		printf("%s %d is %d and is greater than 5\n",  str, n , M);
 	}
 	else if (M == 0) 
 	{
