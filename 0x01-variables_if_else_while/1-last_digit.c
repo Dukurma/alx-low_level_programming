@@ -14,8 +14,7 @@ int main(void)
 	int n;
 	int M;
 	char str[] = "Last digit of";
-
-       	srand(time(0));
+	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	M = n % 10;
 	if (M > 5)
