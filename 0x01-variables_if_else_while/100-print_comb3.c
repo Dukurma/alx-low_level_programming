@@ -6,23 +6,18 @@
  */
 int main(void)
 {
-	int ones = '0';
-	int tens = '0';
+	int d1, d2;
 
-	for (tens = '0'; tens <= 9; tens++)/*prints tens digits*/
+	for (d1 = 0; d1 < 9; d1++)
 	{
-		for (ones = '0'; ones <= 9; ones++)/*prints ones digits*/
+		for (d2 = d1 + 1; d2 < 10; d2++)
 		{
-			if (!((ones == tens) || (tens > ones)))/*eliminates repitition*/
-			{
-				putchar(tens);
-				putchar(ones);
-				if (!(ones == '9' && tens == '8'))/*addes comma and space*/
-				{
-					putchar(',');
-					putchar(' ');
-				}
-			}
+			putchar((d1 % 10) + '0');
+			putchar((d2 % 10) + '0');
+			if (d1 == 8 && d2 == 9)
+				continue;
+			putchar(',');
+			putchar(' ');
 		}
 	}
 	putchar('\n');
