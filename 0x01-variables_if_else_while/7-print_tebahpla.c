@@ -1,17 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 /**
- *  main - Entry point
+ * main - Entry point
  *
- *   Return: Always 0 (Success)
+ * Return: Always 0 (Success)
+ *
  */
 int main(void)
 {
-	char c;
+	int b;
 
-	for (c = 'z'; c >= 'a'; c--)
-		putchar(c);
-		putchar('\n');
+	for (b = 'z'; b >= 'a'; b--)
+		putchar(b);
+	putchar('\n');
 	return (0);
 }
