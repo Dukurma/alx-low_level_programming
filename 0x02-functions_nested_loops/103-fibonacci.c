@@ -3,7 +3,7 @@
  * main - Entey point
  * computes and prints even  number < 4,000,000
  * 5 below 1024 (excluded), followed by a new line
- * Return 0
+ * Return: 0 Always (success)
  */
 int main(void)
 {
