@@ -8,18 +8,23 @@
  */
 char *leet(char *s);
 {
-	int indx1 = 0, indx2;
-	char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
+	char *c;
+	char map[15] = {
+		'a', 'A', '4',
+		'e', 'E', '3',
+		'o', 'O', '0',
+		't', 'T', '7',
+		'l', 'L', '1'
+	};
+	int i;
 
-	while (s[indx1])
+	for (c = s; *c; ++c)
 	{
-		for (indx2 = 0; indx2 <= 7; indx2++)
+		for (i = 0; i < 15; i += 3)
 		{
-			if (s[indx1] == leet[indx2] ||
-					s[indx1] - 32 == leet[indx2])
-				s[indx1] = indx2 + '0';
+			if (*c == map[i] || *c == map[i + 1])
+				*c = map[i + 2];
 		}
-		indx1++;
 	}
 	return (s);
 }
