@@ -2,35 +2,33 @@
 
 /**
  * cap_string - Capitalizes all words of a string.
- * @str: The string to be capitalized.
+ * @s: The string to be capitalized.
  * Return: A pointer to the changed string.
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int index = 0;
+	int i, x;
+	int cap = 32;
+	int separators[] = {',', ';', '.', '?', '"', '(', ')',
+	'{', '}', ' ', '\n', '\t'};
 
-	while (str[index])
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
-		if (str[index - 1] == ' ' ||
-				str[index - 1] == '\t' ||
-				str[index - 1] == '\n' ||
-				str[index - 1] == ',' ||
-				str[index - 1] == ';' ||
-				str[index - 1] == '.' ||
-				str[index - 1] == '!' ||
-				str[index - 1] == '?' ||
-				str[index - 1] == '"' ||
-				str[index - 1] == '(' ||
-				str[index - 1] == ')' ||
-				str[index - 1] == '{' ||
-				str[index - 1] == '}' ||
-				index == 0)
-			str[index] -= 32;
+		if (s[i] >= 'a' && s[i] <= 'z')
+		{
+			s[i] = s[i] - cap;
+		}
 
-		index++;
+		cap = 0;
+
+		for (x = 0; x <= 12; x++)
+		{
+			if (s[i] == separators[x])
+			{
+				x = 12;
+				cap = 32;
+			}
+		}
 	}
-
-	return (str);
+	return (s);
 }
