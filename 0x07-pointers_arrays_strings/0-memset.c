@@ -10,16 +10,16 @@
  */
 char *_memset(char *s, char b, unsigned int n);
 {
-	unsigned int b;
+	unsigned int i;
 
-	b = 0;
-	while (b < size)
+	i = 0;
+	while (i < size)
 	{
-		if (b % 10)
+		if (i % 10)
 		{
 			printf(" ");
 		}
-		if (!(b % 10) && b)
+		if (!(i % 10) && i)
 		{
 			printf("\n");
 		}
