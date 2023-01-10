@@ -2,43 +2,50 @@
 #include <stdlib.h>
 
 /**
- * *str_concat - main function.
- * @s1: Primer string.
- * @s2: Segundo string.
+ * str_concat - Concatenates two strings of any size
+ * @s1: the first string to concatenate
+ * @s2: the second string to concatenate
  *
- *  Description: Escriba una función que devuelva un puntero a
- *  un espacio recién asignado en la memoria, que contiene
- *  una copia de la cadena dada como parámetro.
- * Return: concat of s1 and s2
+ * Return: the two strings concatenated
  */
 char *str_concat(char *s1, char *s2)
 {
-	int size; /* Tamaño del string*/
-	int size2; /* Tamañano del segundo string */
-	int i, j; /* Iteradores de bucle */
-	char *array; /* Salida */
+	int i = 0, j = 0, k = 0, l = 0;
+	char *s;
 
-	if (!s1)
-		s1 = ""; /* Devuelve un string vacio */
-	if (!s2)
+	if (s1 == NULL)
+		s1 = "";
+
+	if (s2 == NULL)
 		s2 = "";
-	for (size = 0; s1[size] != '\0'; size++) /* leng del string */
-		;
-	for (size2 = 0; s2[size2] != '\0'; size2++) /* leng string */
-		;
-	array = malloc(((size) + (size2 + 1)) * sizeof(char)); /* New memory alloc */
 
-	if (!array)
+	while (s1[i])
+		i++;
+
+	while (s2[j])
+		j++;
+
+	l = i + j;
+	s = malloc((sizeof(char) * l) + 1);
+
+	if (s == NULL)
+		return (NULL);
+
+	j = 0;
+
+	while (k < l)
 	{
-		return (NULL); /* Devuelve NULLL si malloc falla */
+		if (k <= i)
+			s[k] = s1[k];
+
+		if (k >= i)
+		{
+			s[k] = s2[j];
+			j++;
+		}
+
+		k++;
 	}
-	for (i = 0; i < size; i++)
-	{
-		array[i] = s1[i]; /* Copiamos string en base a string dado por main */
-	}
-	for (j = 0; j < (size2 + 1); j++)
-	{
-		array[i + j] = s2[j]; /* Copiamos string en base a string dado por main */
-	}
-	return (array); /* Devolvemos string nuevo */
+	s[k] = '\0';
+	return (s);
 }
