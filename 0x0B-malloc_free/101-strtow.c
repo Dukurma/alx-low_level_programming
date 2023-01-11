@@ -3,36 +3,74 @@
 #include <stdlib.h>
 
 /**
- * print_tab - Prints an array of string
- * @tab: The array to print
+ * wrdcnt - counts the number of words in a string
+ * @s: string to count
  *
- * Return: nothing
+ * Return: int of number of words
  */
-void print_tab(char **tab)
+int wrdcnt(char *s)
 {
-	int i;
+	int i, n = 0;
 
-	for (i = 0; tab[i] != NULL; ++i)
+	for (i = 0; s[i]; i++)
 	{
-		printf("%s\n", tab[i]);
+		if (s[i] == ' ')
+		{
+			if (s[i + 1] != ' ' && s[i + 1] != '\0')
+				n++;
+		}
+		else if (i == 0)
+			n++;
 	}
+	n++;
+	return (n);
 }
-
 /**
- * main - check the code for ALX School students.
+ * strtow - splits a string into words
+ * @str: string to split
  *
- * Return: 1 if an error occurred, 0 otherwise
+ * Return: pointer to an array of strings
  */
-int main(void)
+char **strtow(char *str)
 {
-	char **tab;
+	int i, j, k, l, n = 0, wc = 0;
+	char **w;
 
-	tab = strtow("      ALX School         #cisfun      ");
-	if (tab == NULL)
+	if (str == NULL || *str == '\0')
+		return (NULL);
+	n = wrdcnt(str)
+		if (n == 1)
+			return (NULL);
+	w = (char **)malloc(n * sizeof(char *));
+	if (w == NULL)
+		return (NULL);
+	w[n - 1] = NULL;
+	i = 0;
+	while (str[i])
 	{
-		printf("Failed\n");
-		return (1);
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
+		{
+			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
+				;
+			j++;
+			w[wc] = (char *)malloc(j * sizeof(char));
+			j--;
+			if (w[wc] == NULL)
+			{
+				for (k = 0; k < wc; k++)
+					free(w[k]);
+				free(w[n - 1]);
+				free(w);
+				return (NULL);
+			}
+			for (l = 0; l < j; l++)
+				w[wc][l] = str[i + l];
+			w[wc][l] = '\0';
+			wc++;
+			i += j;
+		}
+		else
+			i++;
 	}
-	print_tab(tab);
-	return (0);
+	return (w);
 }
