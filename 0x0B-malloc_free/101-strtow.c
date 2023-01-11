@@ -38,9 +38,9 @@ char **strtow(char *str)
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	n = wrdcnt(str)
-		if (n == 1)
-			return (NULL);
+	n = wrdcnt(str);
+	if (n == 1)
+		return (NULL);
 	w = (char **)malloc(n * sizeof(char *));
 	if (w == NULL)
 		return (NULL);
