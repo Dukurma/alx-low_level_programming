@@ -27,5 +27,5 @@ for (i = 0; i < n; i++)
 }
 va_end(list);
 
-_putchar('\n');
+putchar('\n');
 }
