@@ -5,8 +5,8 @@
 
 /**
  * print_strings - prints all strings with a separator
- *  * @separator: separe strings
- *   * @n: int, number of undefined arguments
+ * @separator: separe strings
+ * @n: int, number of undefined arguments
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
@@ -27,5 +27,5 @@ for (i = 0; i < n; i++)
 }
 va_end(list);
 
-putchar('\n');
+_putchar('\n');
 }
