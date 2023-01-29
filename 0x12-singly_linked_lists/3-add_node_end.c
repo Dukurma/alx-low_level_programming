@@ -4,10 +4,10 @@
 #include "lists.h"
 
 /**
- *  * main - check the code
- *   *
- *    * Return: Always 0.
- *     */
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
 	list_t *head;
@@ -43,6 +43,5 @@ int main(void)
 	add_node_end(&head, "Victor");
 	add_node_end(&head, "Walton");
 	print_list(head);
-    	return (0);
+	return (0);
 }
-														        print_list(head);
