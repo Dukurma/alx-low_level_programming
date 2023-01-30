@@ -3,7 +3,7 @@
 
 /*
  * Desc: Header file containing prototypes and definitions for all functions
- * and types written in the 0x12-more_singly_linked_lists directory.
+ *       and types written in the 0x12-more_singly_linked_lists directory.
  */
 
 #include <stdlib.h>
@@ -14,10 +14,11 @@
  * @next: points to the next node
  *
  * Description: singly linked list node structure
+ * for Holberton project
  */
 typedef struct listint_s
 {
-	int 	
+	int n;
 	struct listint_s *next;
 } listint_t;
 
